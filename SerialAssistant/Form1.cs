@@ -28,9 +28,69 @@ namespace Serial
             set { _SerialPortOpened = value; }
         }
 
+        public enum Text_Show_Method
+        {
+            Text,
+            Hex
+        }
+
+        private struct Tx_Config_Context
+        {
+            public Text_Show_Method show_Method;
+            public bool auto_Send;
+            public bool is_Sending;
+            public int auto_Send_Cycle;
+            public string text;
+            public string hex;
+        }
+
+        private Tx_Config_Context _tx_Config_Context = new Tx_Config_Context
+        {
+            show_Method = Text_Show_Method.Text,
+            auto_Send  = false,
+            is_Sending = false,
+            auto_Send_Cycle = 1000,
+            text = "",
+            hex = ""
+        };
+
+        private Thread _Transmit_Thread = null;
+
         public SerialAssistant()
         {
             InitializeComponent();
+        }
+
+        private static string ConvertStringToHexString(string text, Encoding encoding)
+        {
+            byte[] bytes = encoding.GetBytes(text);
+
+            StringBuilder hex = new StringBuilder();
+
+            foreach (byte b in bytes)
+            {
+                hex.Append(b.ToString("X2"));
+            }
+
+            return hex.ToString();
+        }
+
+        private static string ConvertHexStringToString(string text, Encoding encoding)
+        {
+            if (text.Length % 2 != 0)
+            {
+                MessageBox.Show("转换失败，十六进制字符串的长度必须是偶数");
+                return text;
+            }
+
+            byte[] bytes = new byte[text.Length / 2];
+
+            for (int i = 0; i < text.Length; i += 2)
+            {
+                bytes[i / 2] = Convert.ToByte(text.Substring(i, 2), 16);
+            }
+
+            return encoding.GetString(bytes);
         }
 
         private void SerialPorts_Load(ComboBox cbb)
@@ -51,6 +111,25 @@ namespace Serial
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString() + "串口列表加载到组合框失败");
+            }
+        }
+
+        private void Transmit_String(string str)
+        {
+            byte[] text = serialPort1.Encoding.GetBytes(str);
+            serialPort1.Write(text, 0, text.Length);
+            tx_status_transmit_counter.Text = (int.Parse(tx_status_transmit_counter.Text) + text.Length).ToString();
+        }
+
+        private void Transmit_Thread_Enter()
+        {
+            while (true)
+            {
+                if (_tx_Config_Context.auto_Send && _tx_Config_Context.is_Sending)
+                {
+                    Transmit_String(tx_buff_rtb.Text);
+                }
+                Thread.Sleep(_tx_Config_Context.auto_Send_Cycle);
             }
         }
 
@@ -82,14 +161,24 @@ namespace Serial
             rx_config_show_text_rbtn.Checked = true;
             rx_config_save_path_tb.Text = "";
 
-            tx_config_show_text_rbtn.Checked = true;
-            tx_config_auto_send_ckb.Checked = false;
-            tx_config_auto_send_cycle_tb.Text = "1000";
+            tx_config_show_text_rbtn.Checked = _tx_Config_Context.show_Method == Text_Show_Method.Text;
+            tx_config_show_hex_rbtn.Checked  = _tx_Config_Context.show_Method != Text_Show_Method.Text;
+            tx_config_auto_send_ckb.Checked = _tx_Config_Context.auto_Send;
+            tx_config_auto_send_cycle_tb.Text = _tx_Config_Context.auto_Send_Cycle.ToString();
+            tx_config_stop_transmit_btn.Enabled = false;
 
             rx_buff_rtb.Text = "";
 
             tx_buff_rtb.Text  = "如果您在使用过程中发现任何BUG，欢迎向我提供反馈\n";
             tx_buff_rtb.Text += "反馈渠道：https://github.com/nayooooo/SerialAssistant\n";
+        }
+
+        private void SerialAssistant_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (_Transmit_Thread != null && _Transmit_Thread.IsAlive)
+            {
+                _Transmit_Thread.Abort();
+            }
         }
 
         private void SerialConfig_cbb_DropDown(object sender, EventArgs e)
@@ -162,7 +251,7 @@ namespace Serial
                     }
                     else
                     {  // not select
-                        MessageBox.Show("必须选择端口才可以打开串口！");
+                        MessageBox.Show("必须先选择端口才可以打开串口！");
                     }
                 }
                 catch (Exception ex)
@@ -174,19 +263,113 @@ namespace Serial
 
         private void TxConfig_btn_Click(object sender, EventArgs e)
         {
-            if (sender == tx_config_start_transmit_btn)
+            if (sender == tx_config_clear_buff_btn)
             {
-                try
+                tx_buff_rtb.Text = "";
+            }
+            else if (sender == tx_config_stop_transmit_btn)
+            {
+                _tx_Config_Context.is_Sending = false;
+                tx_config_stop_transmit_btn.Enabled = false;
+                tx_config_start_transmit_btn.Enabled = true;
+                if (_Transmit_Thread.IsAlive)
                 {
-                    if (SerialPortOpened && serialPort1.IsOpen)
-                    {
-                        byte[] text = serialPort1.Encoding.GetBytes(tx_buff_rtb.Text);
-                        serialPort1.Write(text, 0, text.Length);
-                    }
+                    _Transmit_Thread.Abort();
+                    _Transmit_Thread.Join();
                 }
-                catch (Exception ex)
+            }
+            else if (sender == tx_config_start_transmit_btn)
+            {
+                if (!(SerialPortOpened && serialPort1.IsOpen))
                 {
-                    MessageBox.Show(ex.ToString() + serialPort1.PortName.ToString());
+                    MessageBox.Show("请先打开串口");
+                    return;
+                }
+                if (!_tx_Config_Context.auto_Send)
+                {  // 手动发送一次
+                    Transmit_String(tx_buff_rtb.Text);
+                }
+                else
+                {  // 自动发送
+                    tx_config_start_transmit_btn.Enabled = false;
+                    tx_config_stop_transmit_btn.Enabled = true;
+                    _tx_Config_Context.is_Sending = true;
+                    _Transmit_Thread = new Thread(new ThreadStart(Transmit_Thread_Enter));
+                    _Transmit_Thread.Start();
+                }
+            }
+        }
+
+        private void TxConfig_rbtn_Click(object sender, EventArgs e)
+        {
+            if (sender == tx_config_show_text_rbtn)
+            {
+                if (_tx_Config_Context.show_Method == Text_Show_Method.Text)
+                {
+                    return;
+                }
+                _tx_Config_Context.show_Method = Text_Show_Method.Text;
+                string temp = ConvertHexStringToString(_tx_Config_Context.hex, serialPort1.Encoding);
+                if (temp != _tx_Config_Context.hex)
+                {
+                    tx_buff_rtb.Text = temp;
+                }
+            }
+            else if (sender == tx_config_show_hex_rbtn)
+            {
+                if (_tx_Config_Context.show_Method == Text_Show_Method.Hex)
+                {
+                    return;
+                }
+                _tx_Config_Context.show_Method = Text_Show_Method.Hex;
+                tx_buff_rtb.Text = ConvertStringToHexString(_tx_Config_Context.text, serialPort1.Encoding);
+            }
+        }
+
+        private void TxConfig_ckb_Click(object sender, EventArgs e)
+        {
+            if (sender == tx_config_auto_send_ckb)
+            {
+                _tx_Config_Context.auto_Send = tx_config_auto_send_ckb.Checked;
+            }
+        }
+
+        private void TxConfig_tb_TextChanged(object sender, EventArgs e)
+        {
+            if (sender == tx_config_auto_send_cycle_tb)
+            {
+                int value;
+
+                if (!int.TryParse(tx_config_auto_send_cycle_tb.Text, out value) || value <= 0)
+                {
+                    tx_config_auto_send_cycle_tb.Text = "";
+                    System.Media.SystemSounds.Beep.Play();
+                }
+            }
+        }
+
+        private void TxConfig_tb_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (sender == tx_config_auto_send_cycle_tb)
+            {
+                if (e.KeyCode == Keys.Enter)
+                {
+                    _tx_Config_Context.auto_Send_Cycle = int.Parse(tx_config_auto_send_cycle_tb.Text);
+                }
+            }
+        }
+
+        private void Buff_rtb_TextChanged(object sender, EventArgs e)
+        {
+            if (sender == tx_buff_rtb)
+            {
+                if (_tx_Config_Context.show_Method == Text_Show_Method.Text)
+                {
+                    _tx_Config_Context.text = tx_buff_rtb.Text;
+                }
+                else if (_tx_Config_Context.show_Method == Text_Show_Method.Hex)
+                {
+                    _tx_Config_Context.hex = tx_buff_rtb.Text;
                 }
             }
         }

@@ -55,6 +55,8 @@
             this.serial_config_port_cbb = new System.Windows.Forms.ComboBox();
             this.serial_config_baud_cbb = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.serial_config_encode_cbb = new System.Windows.Forms.ComboBox();
             this.tx_buff_rtb = new System.Windows.Forms.RichTextBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -64,8 +66,6 @@
             this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
             this.tx_status_receive_counter = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.serial_config_encode_cbb = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.groupBox4.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -184,6 +184,7 @@
             this.tx_config_show_hex_rbtn.TabStop = true;
             this.tx_config_show_hex_rbtn.Text = "十六进制";
             this.tx_config_show_hex_rbtn.UseVisualStyleBackColor = true;
+            this.tx_config_show_hex_rbtn.Click += new System.EventHandler(this.TxConfig_rbtn_Click);
             // 
             // tx_config_clear_buff_btn
             // 
@@ -193,6 +194,7 @@
             this.tx_config_clear_buff_btn.TabIndex = 6;
             this.tx_config_clear_buff_btn.Text = "清空缓冲区";
             this.tx_config_clear_buff_btn.UseVisualStyleBackColor = true;
+            this.tx_config_clear_buff_btn.Click += new System.EventHandler(this.TxConfig_btn_Click);
             // 
             // tx_config_show_text_rbtn
             // 
@@ -204,6 +206,7 @@
             this.tx_config_show_text_rbtn.TabStop = true;
             this.tx_config_show_text_rbtn.Text = "文本显示";
             this.tx_config_show_text_rbtn.UseVisualStyleBackColor = true;
+            this.tx_config_show_text_rbtn.Click += new System.EventHandler(this.TxConfig_rbtn_Click);
             // 
             // tx_config_stop_transmit_btn
             // 
@@ -213,6 +216,7 @@
             this.tx_config_stop_transmit_btn.TabIndex = 6;
             this.tx_config_stop_transmit_btn.Text = "暂停发送";
             this.tx_config_stop_transmit_btn.UseVisualStyleBackColor = true;
+            this.tx_config_stop_transmit_btn.Click += new System.EventHandler(this.TxConfig_btn_Click);
             // 
             // tx_config_start_transmit_btn
             // 
@@ -233,6 +237,7 @@
             this.tx_config_auto_send_ckb.TabIndex = 6;
             this.tx_config_auto_send_ckb.Text = "自动发送";
             this.tx_config_auto_send_ckb.UseVisualStyleBackColor = true;
+            this.tx_config_auto_send_ckb.Click += new System.EventHandler(this.TxConfig_ckb_Click);
             // 
             // label3
             // 
@@ -249,6 +254,8 @@
             this.tx_config_auto_send_cycle_tb.Name = "tx_config_auto_send_cycle_tb";
             this.tx_config_auto_send_cycle_tb.Size = new System.Drawing.Size(49, 21);
             this.tx_config_auto_send_cycle_tb.TabIndex = 6;
+            this.tx_config_auto_send_cycle_tb.TextChanged += new System.EventHandler(this.TxConfig_tb_TextChanged);
+            this.tx_config_auto_send_cycle_tb.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxConfig_tb_KeyDown);
             // 
             // groupBox3
             // 
@@ -333,6 +340,24 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "串口配置";
             // 
+            // label4
+            // 
+            this.label4.Location = new System.Drawing.Point(16, 84);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(41, 12);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "编码";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // serial_config_encode_cbb
+            // 
+            this.serial_config_encode_cbb.FormattingEnabled = true;
+            this.serial_config_encode_cbb.Location = new System.Drawing.Point(63, 81);
+            this.serial_config_encode_cbb.Name = "serial_config_encode_cbb";
+            this.serial_config_encode_cbb.Size = new System.Drawing.Size(121, 20);
+            this.serial_config_encode_cbb.TabIndex = 3;
+            this.serial_config_encode_cbb.SelectedIndexChanged += new System.EventHandler(this.SerialConfig_cbb_SelectedIndexChanged);
+            // 
             // tx_buff_rtb
             // 
             this.tx_buff_rtb.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -341,6 +366,7 @@
             this.tx_buff_rtb.Size = new System.Drawing.Size(440, 119);
             this.tx_buff_rtb.TabIndex = 0;
             this.tx_buff_rtb.Text = "";
+            this.tx_buff_rtb.TextChanged += new System.EventHandler(this.Buff_rtb_TextChanged);
             // 
             // groupBox5
             // 
@@ -407,24 +433,6 @@
             this.statusStrip1.TabIndex = 8;
             this.statusStrip1.Text = "statusStrip1";
             // 
-            // serial_config_encode_cbb
-            // 
-            this.serial_config_encode_cbb.FormattingEnabled = true;
-            this.serial_config_encode_cbb.Location = new System.Drawing.Point(63, 81);
-            this.serial_config_encode_cbb.Name = "serial_config_encode_cbb";
-            this.serial_config_encode_cbb.Size = new System.Drawing.Size(121, 20);
-            this.serial_config_encode_cbb.TabIndex = 3;
-            this.serial_config_encode_cbb.SelectedIndexChanged += new System.EventHandler(this.SerialConfig_cbb_SelectedIndexChanged);
-            // 
-            // label4
-            // 
-            this.label4.Location = new System.Drawing.Point(16, 84);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(41, 12);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "编码";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // SerialAssistant
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -438,6 +446,7 @@
             this.Controls.Add(this.groupBox4);
             this.Name = "SerialAssistant";
             this.Text = "串口助手";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SerialAssistant_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox4.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
