@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.IO.Ports;
 using System.Threading;
+using System.IO;
 
 namespace Serial
 {
@@ -34,6 +35,13 @@ namespace Serial
             Hex
         }
 
+        private struct Rx_Config_Context
+        {
+            public Text_Show_Method show_Method;
+            public bool is_receiving;
+            public string save_path;
+        }
+
         private struct Tx_Config_Context
         {
             public Text_Show_Method show_Method;
@@ -43,6 +51,13 @@ namespace Serial
             public string text;
             public string hex;
         }
+
+        private Rx_Config_Context _rx_Config_Context = new Rx_Config_Context
+        {
+            show_Method = Text_Show_Method.Text,
+            is_receiving = false,
+            save_path = ""
+        };
 
         private Tx_Config_Context _tx_Config_Context = new Tx_Config_Context
         {
@@ -114,6 +129,21 @@ namespace Serial
             }
         }
 
+        private void Receive_Handler(object sender, SerialDataReceivedEventArgs e)
+        {
+            SerialPort sp = (SerialPort)sender;
+            string indata = sp.ReadExisting();
+            if (!_rx_Config_Context.is_receiving)
+            {
+                return;
+            }
+            if (indata != null && indata.Length != 0)
+            {
+                rx_buff_rtb.Text += indata;
+                tx_status_receive_counter.Text = (int.Parse(tx_status_receive_counter.Text) + indata.Length).ToString();
+            }
+        }
+
         private void Transmit_String(string str)
         {
             byte[] text = serialPort1.Encoding.GetBytes(str);
@@ -133,7 +163,7 @@ namespace Serial
             }
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void SerialAssistant_Load(object sender, EventArgs e)
         {
             serialPort1.PortName = "COM1";
             serialPort1.BaudRate = 115200;
@@ -158,8 +188,11 @@ namespace Serial
             serial_config_encode_cbb.SelectedIndex = Array.IndexOf(_Serial_Encode_List, "utf-8");
             serial_config_encode_cbb.DropDownStyle = ComboBoxStyle.DropDownList;
 
-            rx_config_show_text_rbtn.Checked = true;
-            rx_config_save_path_tb.Text = "";
+            rx_config_show_text_rbtn.Checked = _rx_Config_Context.show_Method == Text_Show_Method.Text;
+            rx_config_show_hex_rbtn.Checked  = _rx_Config_Context.show_Method != Text_Show_Method.Text;
+            rx_config_stop_receive_btn.Enabled = false;
+            rx_config_save_path_tb.Text = _rx_Config_Context.save_path;
+            rx_config_save_path_tb.ReadOnly = true;
 
             tx_config_show_text_rbtn.Checked = _tx_Config_Context.show_Method == Text_Show_Method.Text;
             tx_config_show_hex_rbtn.Checked  = _tx_Config_Context.show_Method != Text_Show_Method.Text;
@@ -168,9 +201,12 @@ namespace Serial
             tx_config_stop_transmit_btn.Enabled = false;
 
             rx_buff_rtb.Text = "";
+            rx_buff_rtb.ReadOnly = true;
 
             tx_buff_rtb.Text  = "如果您在使用过程中发现任何BUG，欢迎向我提供反馈\n";
             tx_buff_rtb.Text += "反馈渠道：https://github.com/nayooooo/SerialAssistant\n";
+
+            serialPort1.DataReceived += new SerialDataReceivedEventHandler(Receive_Handler);
         }
 
         private void SerialAssistant_FormClosing(object sender, FormClosingEventArgs e)
@@ -240,6 +276,9 @@ namespace Serial
                         SerialPortOpened = false;
                         serial_config_open_btn.BackColor = SystemColors.Control;
                         serial_config_port_cbb.Enabled = true;
+                        rx_config_stop_receive_btn.Enabled = false;
+                        rx_config_stop_receive_btn.BackColor = SystemColors.Control;
+                        _rx_Config_Context.is_receiving = false;
                     }
                     else if (serial_config_port_cbb.SelectedIndex >= 0)
                     {  // to open
@@ -248,6 +287,8 @@ namespace Serial
                         SerialPortOpened = true;
                         serial_config_open_btn.BackColor = SystemColors.HotTrack;
                         serial_config_port_cbb.Enabled = false;
+                        rx_config_stop_receive_btn.Enabled = true;
+                        _rx_Config_Context.is_receiving = true;
                     }
                     else
                     {  // not select
@@ -258,6 +299,83 @@ namespace Serial
                 {
                     MessageBox.Show(ex.ToString() + serialPort1.PortName.ToString());
                 }
+            }
+        }
+
+        private void RxConfig_btn_Click(object sender, EventArgs e)
+        {
+            if (sender == rx_config_clear_buff_btn)
+            {
+                rx_buff_rtb.Text = "";
+            }
+            else if (sender == rx_config_stop_receive_btn)
+            {
+                if (_rx_Config_Context.is_receiving)
+                {  // stop receive
+                    _rx_Config_Context.is_receiving = false;
+                    rx_config_stop_receive_btn.BackColor = SystemColors.HotTrack;
+                }
+                else
+                {  // continue receive
+                    _rx_Config_Context.is_receiving = true;
+                    rx_config_stop_receive_btn.BackColor = SystemColors.Control;
+                }
+            }
+            else if (sender == rx_config_select_path_btn)
+            {
+                saveFileDialog1.Filter = "Text Files (*.txt)|*.txt";
+                saveFileDialog1.Title  = "选择保存路径";
+                if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    rx_config_save_path_tb.Text = saveFileDialog1.FileName;
+                    try
+                    {
+                        File.WriteAllText(rx_config_save_path_tb.Text, rx_buff_rtb.Text);
+                        MessageBox.Show("文件保存成功");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString() + "文件保存失败");
+                    }
+                }
+            }
+            else if (sender == rx_config_save_buff_btn)
+            {
+                try
+                {
+                    File.WriteAllText(rx_config_save_path_tb.Text, rx_buff_rtb.Text);
+                    MessageBox.Show("文件保存成功");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString() + "文件保存失败");
+                }
+            }
+        }
+
+        private void RxConfig_rbtn_Click(object sender, EventArgs e)
+        {
+            if (sender == rx_config_show_text_rbtn)
+            {
+                if (_rx_Config_Context.show_Method == Text_Show_Method.Text)
+                {
+                    return;
+                }
+                _rx_Config_Context.show_Method = Text_Show_Method.Text;
+                string temp = ConvertHexStringToString(rx_buff_rtb.Text, serialPort1.Encoding);
+                if (temp != rx_buff_rtb.Text)
+                {
+                    rx_buff_rtb.Text = temp;
+                }
+            }
+            else if (sender == rx_config_show_hex_rbtn)
+            {
+                if (_rx_Config_Context.show_Method == Text_Show_Method.Hex)
+                {
+                    return;
+                }
+                _rx_Config_Context.show_Method = Text_Show_Method.Hex;
+                rx_buff_rtb.Text = ConvertStringToHexString(rx_buff_rtb.Text, serialPort1.Encoding);
             }
         }
 

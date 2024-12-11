@@ -66,6 +66,7 @@
             this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
             this.tx_status_receive_counter = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.groupBox4.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -103,6 +104,7 @@
             this.rx_config_show_text_rbtn.TabStop = true;
             this.rx_config_show_text_rbtn.Text = "文本显示";
             this.rx_config_show_text_rbtn.UseVisualStyleBackColor = true;
+            this.rx_config_show_text_rbtn.Click += new System.EventHandler(this.RxConfig_rbtn_Click);
             // 
             // rx_config_save_path_tb
             // 
@@ -119,6 +121,7 @@
             this.rx_config_select_path_btn.TabIndex = 6;
             this.rx_config_select_path_btn.Text = "选择路径";
             this.rx_config_select_path_btn.UseVisualStyleBackColor = true;
+            this.rx_config_select_path_btn.Click += new System.EventHandler(this.RxConfig_btn_Click);
             // 
             // rx_config_show_hex_rbtn
             // 
@@ -130,6 +133,7 @@
             this.rx_config_show_hex_rbtn.TabStop = true;
             this.rx_config_show_hex_rbtn.Text = "十六进制";
             this.rx_config_show_hex_rbtn.UseVisualStyleBackColor = true;
+            this.rx_config_show_hex_rbtn.Click += new System.EventHandler(this.RxConfig_rbtn_Click);
             // 
             // rx_config_save_buff_btn
             // 
@@ -139,6 +143,7 @@
             this.rx_config_save_buff_btn.TabIndex = 6;
             this.rx_config_save_buff_btn.Text = "保存数据";
             this.rx_config_save_buff_btn.UseVisualStyleBackColor = true;
+            this.rx_config_save_buff_btn.Click += new System.EventHandler(this.RxConfig_btn_Click);
             // 
             // rx_config_clear_buff_btn
             // 
@@ -148,6 +153,7 @@
             this.rx_config_clear_buff_btn.TabIndex = 6;
             this.rx_config_clear_buff_btn.Text = "清空缓冲区";
             this.rx_config_clear_buff_btn.UseVisualStyleBackColor = true;
+            this.rx_config_clear_buff_btn.Click += new System.EventHandler(this.RxConfig_btn_Click);
             // 
             // rx_config_stop_receive_btn
             // 
@@ -157,6 +163,7 @@
             this.rx_config_stop_receive_btn.TabIndex = 6;
             this.rx_config_stop_receive_btn.Text = "暂停接收";
             this.rx_config_stop_receive_btn.UseVisualStyleBackColor = true;
+            this.rx_config_stop_receive_btn.Click += new System.EventHandler(this.RxConfig_btn_Click);
             // 
             // groupBox2
             // 
@@ -447,7 +454,7 @@
             this.Name = "SerialAssistant";
             this.Text = "串口助手";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SerialAssistant_FormClosing);
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.SerialAssistant_Load);
             this.groupBox4.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
@@ -501,6 +508,7 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox serial_config_encode_cbb;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }
 
