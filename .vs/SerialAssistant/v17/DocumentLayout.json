@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "D:\\\u5927\u5B66\\\u5927\u56DB\\\u4E13\u4E1A\u7EFC\u5408\u8BBE\u8BA1\\\u4F5C\u4E1A5-\u521B\u5EFAC#\u4E32\u53E3\u901A\u8BAF\u7A0B\u5E8F\\SerialAssistant\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1102A2D7-8E93-41E2-B0F6-81F68CA1CEE9}|SerialAssistant\\SerialAssistant.csproj|d:\\\u5927\u5B66\\\u5927\u56DB\\\u4E13\u4E1A\u7EFC\u5408\u8BBE\u8BA1\\\u4F5C\u4E1A5-\u521B\u5EFAc#\u4E32\u53E3\u901A\u8BAF\u7A0B\u5E8F\\serialassistant\\serialassistant\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1102A2D7-8E93-41E2-B0F6-81F68CA1CEE9}|SerialAssistant\\SerialAssistant.csproj|solutionrelative:serialassistant\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{1102A2D7-8E93-41E2-B0F6-81F68CA1CEE9}|SerialAssistant\\SerialAssistant.csproj|D:\\\u5927\u5B66\\\u5927\u56DB\\\u4E13\u4E1A\u7EFC\u5408\u8BBE\u8BA1\\\u4F5C\u4E1A5-\u521B\u5EFAC#\u4E32\u53E3\u901A\u8BAF\u7A0B\u5E8F\\SerialAssistant\\serialassistant\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{1102A2D7-8E93-41E2-B0F6-81F68CA1CEE9}|SerialAssistant\\SerialAssistant.csproj|solutionrelative:serialassistant\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1102A2D7-8E93-41E2-B0F6-81F68CA1CEE9}|SerialAssistant\\SerialAssistant.csproj|d:\\\u5927\u5B66\\\u5927\u56DB\\\u4E13\u4E1A\u7EFC\u5408\u8BBE\u8BA1\\\u4F5C\u4E1A5-\u521B\u5EFAc#\u4E32\u53E3\u901A\u8BAF\u7A0B\u5E8F\\serialassistant\\serialassistant\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1102A2D7-8E93-41E2-B0F6-81F68CA1CEE9}|SerialAssistant\\SerialAssistant.csproj|solutionrelative:serialassistant\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,11 +18,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Form1.cs",
               "DocumentMoniker": "D:\\\u5927\u5B66\\\u5927\u56DB\\\u4E13\u4E1A\u7EFC\u5408\u8BBE\u8BA1\\\u4F5C\u4E1A5-\u521B\u5EFAC#\u4E32\u53E3\u901A\u8BAF\u7A0B\u5E8F\\SerialAssistant\\SerialAssistant\\Form1.cs",
               "RelativeDocumentMoniker": "SerialAssistant\\Form1.cs",
@@ -35,7 +35,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Form1.cs [\u8BBE\u8BA1]",
               "DocumentMoniker": "D:\\\u5927\u5B66\\\u5927\u56DB\\\u4E13\u4E1A\u7EFC\u5408\u8BBE\u8BA1\\\u4F5C\u4E1A5-\u521B\u5EFAC#\u4E32\u53E3\u901A\u8BAF\u7A0B\u5E8F\\SerialAssistant\\SerialAssistant\\Form1.cs",
               "RelativeDocumentMoniker": "SerialAssistant\\Form1.cs",
