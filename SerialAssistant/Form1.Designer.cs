@@ -36,34 +36,34 @@
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.serial_config_baud_cbb = new System.Windows.Forms.ComboBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.rx_config_show_text_rbtn = new System.Windows.Forms.RadioButton();
-            this.rx_config_show_hex_rbtn = new System.Windows.Forms.RadioButton();
-            this.rx_config_save_path_tb = new System.Windows.Forms.TextBox();
-            this.rx_config_select_path_btn = new System.Windows.Forms.Button();
-            this.rx_config_save_buff_btn = new System.Windows.Forms.Button();
-            this.rx_config_clear_buff_btn = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.rx_config_stop_receive_btn = new System.Windows.Forms.Button();
-            this.tx_config_auto_send_ckb = new System.Windows.Forms.CheckBox();
-            this.tx_config_show_text_rbtn = new System.Windows.Forms.RadioButton();
-            this.tx_config_show_hex_rbtn = new System.Windows.Forms.RadioButton();
-            this.tx_config_clear_buff_btn = new System.Windows.Forms.Button();
-            this.tx_config_stop_transmit_btn = new System.Windows.Forms.Button();
-            this.tx_config_start_transmit_btn = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
+            this.rx_config_clear_buff_btn = new System.Windows.Forms.Button();
+            this.rx_config_save_buff_btn = new System.Windows.Forms.Button();
+            this.rx_config_show_hex_rbtn = new System.Windows.Forms.RadioButton();
+            this.rx_config_select_path_btn = new System.Windows.Forms.Button();
+            this.rx_config_save_path_tb = new System.Windows.Forms.TextBox();
+            this.rx_config_show_text_rbtn = new System.Windows.Forms.RadioButton();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.tx_config_auto_send_cycle_tb = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tx_config_auto_send_ckb = new System.Windows.Forms.CheckBox();
+            this.tx_config_start_transmit_btn = new System.Windows.Forms.Button();
+            this.tx_config_stop_transmit_btn = new System.Windows.Forms.Button();
+            this.tx_config_show_text_rbtn = new System.Windows.Forms.RadioButton();
+            this.tx_config_clear_buff_btn = new System.Windows.Forms.Button();
+            this.tx_config_show_hex_rbtn = new System.Windows.Forms.RadioButton();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.tx_buff_rtb = new System.Windows.Forms.RichTextBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel6 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.tx_status_transmit_counter = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
             this.tx_status_receive_counter = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabel6 = new System.Windows.Forms.ToolStripStatusLabel();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -83,12 +83,14 @@
             // 
             // serial_config_open_btn
             // 
+            this.serial_config_open_btn.BackColor = System.Drawing.SystemColors.Control;
             this.serial_config_open_btn.Location = new System.Drawing.Point(18, 87);
             this.serial_config_open_btn.Name = "serial_config_open_btn";
             this.serial_config_open_btn.Size = new System.Drawing.Size(166, 47);
             this.serial_config_open_btn.TabIndex = 1;
             this.serial_config_open_btn.Text = "打开串口";
-            this.serial_config_open_btn.UseVisualStyleBackColor = true;
+            this.serial_config_open_btn.UseVisualStyleBackColor = false;
+            this.serial_config_open_btn.Click += new System.EventHandler(this.serial_config_open_btn_Click);
             // 
             // serial_config_port_cbb
             // 
@@ -129,6 +131,15 @@
             this.serial_config_baud_cbb.Size = new System.Drawing.Size(121, 20);
             this.serial_config_baud_cbb.TabIndex = 2;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(16, 58);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(41, 12);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "波特率";
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.rx_config_stop_receive_btn);
@@ -145,14 +156,70 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "接收配置";
             // 
-            // label2
+            // rx_config_stop_receive_btn
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(16, 58);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 12);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "波特率";
+            this.rx_config_stop_receive_btn.Location = new System.Drawing.Point(109, 51);
+            this.rx_config_stop_receive_btn.Name = "rx_config_stop_receive_btn";
+            this.rx_config_stop_receive_btn.Size = new System.Drawing.Size(75, 23);
+            this.rx_config_stop_receive_btn.TabIndex = 6;
+            this.rx_config_stop_receive_btn.Text = "暂停接收";
+            this.rx_config_stop_receive_btn.UseVisualStyleBackColor = true;
+            // 
+            // rx_config_clear_buff_btn
+            // 
+            this.rx_config_clear_buff_btn.Location = new System.Drawing.Point(109, 22);
+            this.rx_config_clear_buff_btn.Name = "rx_config_clear_buff_btn";
+            this.rx_config_clear_buff_btn.Size = new System.Drawing.Size(75, 23);
+            this.rx_config_clear_buff_btn.TabIndex = 6;
+            this.rx_config_clear_buff_btn.Text = "清空缓冲区";
+            this.rx_config_clear_buff_btn.UseVisualStyleBackColor = true;
+            // 
+            // rx_config_save_buff_btn
+            // 
+            this.rx_config_save_buff_btn.Location = new System.Drawing.Point(109, 80);
+            this.rx_config_save_buff_btn.Name = "rx_config_save_buff_btn";
+            this.rx_config_save_buff_btn.Size = new System.Drawing.Size(75, 23);
+            this.rx_config_save_buff_btn.TabIndex = 6;
+            this.rx_config_save_buff_btn.Text = "保存数据";
+            this.rx_config_save_buff_btn.UseVisualStyleBackColor = true;
+            // 
+            // rx_config_show_hex_rbtn
+            // 
+            this.rx_config_show_hex_rbtn.AutoSize = true;
+            this.rx_config_show_hex_rbtn.Location = new System.Drawing.Point(18, 54);
+            this.rx_config_show_hex_rbtn.Name = "rx_config_show_hex_rbtn";
+            this.rx_config_show_hex_rbtn.Size = new System.Drawing.Size(71, 16);
+            this.rx_config_show_hex_rbtn.TabIndex = 7;
+            this.rx_config_show_hex_rbtn.TabStop = true;
+            this.rx_config_show_hex_rbtn.Text = "十六进制";
+            this.rx_config_show_hex_rbtn.UseVisualStyleBackColor = true;
+            // 
+            // rx_config_select_path_btn
+            // 
+            this.rx_config_select_path_btn.Location = new System.Drawing.Point(18, 80);
+            this.rx_config_select_path_btn.Name = "rx_config_select_path_btn";
+            this.rx_config_select_path_btn.Size = new System.Drawing.Size(75, 23);
+            this.rx_config_select_path_btn.TabIndex = 6;
+            this.rx_config_select_path_btn.Text = "选择路径";
+            this.rx_config_select_path_btn.UseVisualStyleBackColor = true;
+            // 
+            // rx_config_save_path_tb
+            // 
+            this.rx_config_save_path_tb.Location = new System.Drawing.Point(18, 109);
+            this.rx_config_save_path_tb.Name = "rx_config_save_path_tb";
+            this.rx_config_save_path_tb.Size = new System.Drawing.Size(166, 21);
+            this.rx_config_save_path_tb.TabIndex = 6;
+            // 
+            // rx_config_show_text_rbtn
+            // 
+            this.rx_config_show_text_rbtn.AutoSize = true;
+            this.rx_config_show_text_rbtn.Location = new System.Drawing.Point(18, 25);
+            this.rx_config_show_text_rbtn.Name = "rx_config_show_text_rbtn";
+            this.rx_config_show_text_rbtn.Size = new System.Drawing.Size(71, 16);
+            this.rx_config_show_text_rbtn.TabIndex = 6;
+            this.rx_config_show_text_rbtn.TabStop = true;
+            this.rx_config_show_text_rbtn.Text = "文本显示";
+            this.rx_config_show_text_rbtn.UseVisualStyleBackColor = true;
             // 
             // groupBox3
             // 
@@ -171,70 +238,21 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "发送配置";
             // 
-            // rx_config_show_text_rbtn
+            // tx_config_auto_send_cycle_tb
             // 
-            this.rx_config_show_text_rbtn.AutoSize = true;
-            this.rx_config_show_text_rbtn.Location = new System.Drawing.Point(18, 25);
-            this.rx_config_show_text_rbtn.Name = "rx_config_show_text_rbtn";
-            this.rx_config_show_text_rbtn.Size = new System.Drawing.Size(71, 16);
-            this.rx_config_show_text_rbtn.TabIndex = 6;
-            this.rx_config_show_text_rbtn.TabStop = true;
-            this.rx_config_show_text_rbtn.Text = "文本显示";
-            this.rx_config_show_text_rbtn.UseVisualStyleBackColor = true;
+            this.tx_config_auto_send_cycle_tb.Location = new System.Drawing.Point(135, 113);
+            this.tx_config_auto_send_cycle_tb.Name = "tx_config_auto_send_cycle_tb";
+            this.tx_config_auto_send_cycle_tb.Size = new System.Drawing.Size(49, 21);
+            this.tx_config_auto_send_cycle_tb.TabIndex = 6;
             // 
-            // rx_config_show_hex_rbtn
+            // label3
             // 
-            this.rx_config_show_hex_rbtn.AutoSize = true;
-            this.rx_config_show_hex_rbtn.Location = new System.Drawing.Point(18, 54);
-            this.rx_config_show_hex_rbtn.Name = "rx_config_show_hex_rbtn";
-            this.rx_config_show_hex_rbtn.Size = new System.Drawing.Size(71, 16);
-            this.rx_config_show_hex_rbtn.TabIndex = 7;
-            this.rx_config_show_hex_rbtn.TabStop = true;
-            this.rx_config_show_hex_rbtn.Text = "十六进制";
-            this.rx_config_show_hex_rbtn.UseVisualStyleBackColor = true;
-            // 
-            // rx_config_save_path_tb
-            // 
-            this.rx_config_save_path_tb.Location = new System.Drawing.Point(18, 109);
-            this.rx_config_save_path_tb.Name = "rx_config_save_path_tb";
-            this.rx_config_save_path_tb.Size = new System.Drawing.Size(166, 21);
-            this.rx_config_save_path_tb.TabIndex = 6;
-            // 
-            // rx_config_select_path_btn
-            // 
-            this.rx_config_select_path_btn.Location = new System.Drawing.Point(18, 80);
-            this.rx_config_select_path_btn.Name = "rx_config_select_path_btn";
-            this.rx_config_select_path_btn.Size = new System.Drawing.Size(75, 23);
-            this.rx_config_select_path_btn.TabIndex = 6;
-            this.rx_config_select_path_btn.Text = "选择路径";
-            this.rx_config_select_path_btn.UseVisualStyleBackColor = true;
-            // 
-            // rx_config_save_buff_btn
-            // 
-            this.rx_config_save_buff_btn.Location = new System.Drawing.Point(109, 80);
-            this.rx_config_save_buff_btn.Name = "rx_config_save_buff_btn";
-            this.rx_config_save_buff_btn.Size = new System.Drawing.Size(75, 23);
-            this.rx_config_save_buff_btn.TabIndex = 6;
-            this.rx_config_save_buff_btn.Text = "保存数据";
-            this.rx_config_save_buff_btn.UseVisualStyleBackColor = true;
-            // 
-            // rx_config_clear_buff_btn
-            // 
-            this.rx_config_clear_buff_btn.Location = new System.Drawing.Point(109, 22);
-            this.rx_config_clear_buff_btn.Name = "rx_config_clear_buff_btn";
-            this.rx_config_clear_buff_btn.Size = new System.Drawing.Size(75, 23);
-            this.rx_config_clear_buff_btn.TabIndex = 6;
-            this.rx_config_clear_buff_btn.Text = "清空缓冲区";
-            this.rx_config_clear_buff_btn.UseVisualStyleBackColor = true;
-            // 
-            // rx_config_stop_receive_btn
-            // 
-            this.rx_config_stop_receive_btn.Location = new System.Drawing.Point(109, 51);
-            this.rx_config_stop_receive_btn.Name = "rx_config_stop_receive_btn";
-            this.rx_config_stop_receive_btn.Size = new System.Drawing.Size(75, 23);
-            this.rx_config_stop_receive_btn.TabIndex = 6;
-            this.rx_config_stop_receive_btn.Text = "暂停接收";
-            this.rx_config_stop_receive_btn.UseVisualStyleBackColor = true;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(16, 116);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(113, 12);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "自动发送周期（ms）";
             // 
             // tx_config_auto_send_ckb
             // 
@@ -245,6 +263,24 @@
             this.tx_config_auto_send_ckb.TabIndex = 6;
             this.tx_config_auto_send_ckb.Text = "自动发送";
             this.tx_config_auto_send_ckb.UseVisualStyleBackColor = true;
+            // 
+            // tx_config_start_transmit_btn
+            // 
+            this.tx_config_start_transmit_btn.Location = new System.Drawing.Point(109, 82);
+            this.tx_config_start_transmit_btn.Name = "tx_config_start_transmit_btn";
+            this.tx_config_start_transmit_btn.Size = new System.Drawing.Size(75, 23);
+            this.tx_config_start_transmit_btn.TabIndex = 6;
+            this.tx_config_start_transmit_btn.Text = "开始发送";
+            this.tx_config_start_transmit_btn.UseVisualStyleBackColor = true;
+            // 
+            // tx_config_stop_transmit_btn
+            // 
+            this.tx_config_stop_transmit_btn.Location = new System.Drawing.Point(109, 53);
+            this.tx_config_stop_transmit_btn.Name = "tx_config_stop_transmit_btn";
+            this.tx_config_stop_transmit_btn.Size = new System.Drawing.Size(75, 23);
+            this.tx_config_stop_transmit_btn.TabIndex = 6;
+            this.tx_config_stop_transmit_btn.Text = "暂停发送";
+            this.tx_config_stop_transmit_btn.UseVisualStyleBackColor = true;
             // 
             // tx_config_show_text_rbtn
             // 
@@ -257,6 +293,15 @@
             this.tx_config_show_text_rbtn.Text = "文本显示";
             this.tx_config_show_text_rbtn.UseVisualStyleBackColor = true;
             // 
+            // tx_config_clear_buff_btn
+            // 
+            this.tx_config_clear_buff_btn.Location = new System.Drawing.Point(109, 24);
+            this.tx_config_clear_buff_btn.Name = "tx_config_clear_buff_btn";
+            this.tx_config_clear_buff_btn.Size = new System.Drawing.Size(75, 23);
+            this.tx_config_clear_buff_btn.TabIndex = 6;
+            this.tx_config_clear_buff_btn.Text = "清空缓冲区";
+            this.tx_config_clear_buff_btn.UseVisualStyleBackColor = true;
+            // 
             // tx_config_show_hex_rbtn
             // 
             this.tx_config_show_hex_rbtn.AutoSize = true;
@@ -267,49 +312,6 @@
             this.tx_config_show_hex_rbtn.TabStop = true;
             this.tx_config_show_hex_rbtn.Text = "十六进制";
             this.tx_config_show_hex_rbtn.UseVisualStyleBackColor = true;
-            // 
-            // tx_config_clear_buff_btn
-            // 
-            this.tx_config_clear_buff_btn.Location = new System.Drawing.Point(109, 24);
-            this.tx_config_clear_buff_btn.Name = "tx_config_clear_buff_btn";
-            this.tx_config_clear_buff_btn.Size = new System.Drawing.Size(75, 23);
-            this.tx_config_clear_buff_btn.TabIndex = 6;
-            this.tx_config_clear_buff_btn.Text = "清空缓冲区";
-            this.tx_config_clear_buff_btn.UseVisualStyleBackColor = true;
-            // 
-            // tx_config_stop_transmit_btn
-            // 
-            this.tx_config_stop_transmit_btn.Location = new System.Drawing.Point(109, 53);
-            this.tx_config_stop_transmit_btn.Name = "tx_config_stop_transmit_btn";
-            this.tx_config_stop_transmit_btn.Size = new System.Drawing.Size(75, 23);
-            this.tx_config_stop_transmit_btn.TabIndex = 6;
-            this.tx_config_stop_transmit_btn.Text = "暂停发送";
-            this.tx_config_stop_transmit_btn.UseVisualStyleBackColor = true;
-            // 
-            // tx_config_start_transmit_btn
-            // 
-            this.tx_config_start_transmit_btn.Location = new System.Drawing.Point(109, 82);
-            this.tx_config_start_transmit_btn.Name = "tx_config_start_transmit_btn";
-            this.tx_config_start_transmit_btn.Size = new System.Drawing.Size(75, 23);
-            this.tx_config_start_transmit_btn.TabIndex = 6;
-            this.tx_config_start_transmit_btn.Text = "开始发送";
-            this.tx_config_start_transmit_btn.UseVisualStyleBackColor = true;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(16, 116);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(113, 12);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "自动发送周期（ms）";
-            // 
-            // tx_config_auto_send_cycle_tb
-            // 
-            this.tx_config_auto_send_cycle_tb.Location = new System.Drawing.Point(135, 113);
-            this.tx_config_auto_send_cycle_tb.Name = "tx_config_auto_send_cycle_tb";
-            this.tx_config_auto_send_cycle_tb.Size = new System.Drawing.Size(49, 21);
-            this.tx_config_auto_send_cycle_tb.TabIndex = 6;
             // 
             // groupBox4
             // 
@@ -361,6 +363,12 @@
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(44, 17);
             this.toolStripStatusLabel1.Text = "状态：";
             // 
+            // toolStripStatusLabel6
+            // 
+            this.toolStripStatusLabel6.AutoSize = false;
+            this.toolStripStatusLabel6.Name = "toolStripStatusLabel6";
+            this.toolStripStatusLabel6.Size = new System.Drawing.Size(100, 17);
+            // 
             // toolStripStatusLabel2
             // 
             this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
@@ -388,12 +396,6 @@
             this.tx_status_receive_counter.Size = new System.Drawing.Size(80, 17);
             this.tx_status_receive_counter.Text = "0";
             this.tx_status_receive_counter.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // toolStripStatusLabel6
-            // 
-            this.toolStripStatusLabel6.AutoSize = false;
-            this.toolStripStatusLabel6.Name = "toolStripStatusLabel6";
-            this.toolStripStatusLabel6.Size = new System.Drawing.Size(100, 17);
             // 
             // SerialAssistant
             // 

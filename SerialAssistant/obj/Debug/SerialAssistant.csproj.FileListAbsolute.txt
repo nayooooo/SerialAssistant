@@ -6,3 +6,4 @@ D:\大学\大四\专业综合设计\作业5-创建C#串口通讯程序\SerialAss
 D:\大学\大四\专业综合设计\作业5-创建C#串口通讯程序\SerialAssistant\SerialAssistant\obj\Debug\SerialAssistant.csproj.CoreCompileInputs.cache
 D:\大学\大四\专业综合设计\作业5-创建C#串口通讯程序\SerialAssistant\SerialAssistant\obj\Debug\SerialAssistant.exe
 D:\大学\大四\专业综合设计\作业5-创建C#串口通讯程序\SerialAssistant\SerialAssistant\obj\Debug\SerialAssistant.pdb
+D:\大学\大四\专业综合设计\作业5-创建C#串口通讯程序\SerialAssistant\SerialAssistant\obj\Debug\Serial.SerialAssistant.resources
