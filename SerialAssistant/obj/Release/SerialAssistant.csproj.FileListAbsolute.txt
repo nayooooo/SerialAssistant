@@ -1,0 +1,9 @@
+D:\大学\大四\专业综合设计\作业5-创建C#串口通讯程序\SerialAssistant\SerialAssistant\bin\Release\SerialAssistant.exe
+D:\大学\大四\专业综合设计\作业5-创建C#串口通讯程序\SerialAssistant\SerialAssistant\bin\Release\SerialAssistant.pdb
+D:\大学\大四\专业综合设计\作业5-创建C#串口通讯程序\SerialAssistant\SerialAssistant\obj\Release\SerialAssistant.csproj.AssemblyReference.cache
+D:\大学\大四\专业综合设计\作业5-创建C#串口通讯程序\SerialAssistant\SerialAssistant\obj\Release\Serial.SerialAssistant.resources
+D:\大学\大四\专业综合设计\作业5-创建C#串口通讯程序\SerialAssistant\SerialAssistant\obj\Release\SerialAssistant.Properties.Resources.resources
+D:\大学\大四\专业综合设计\作业5-创建C#串口通讯程序\SerialAssistant\SerialAssistant\obj\Release\SerialAssistant.csproj.GenerateResource.cache
+D:\大学\大四\专业综合设计\作业5-创建C#串口通讯程序\SerialAssistant\SerialAssistant\obj\Release\SerialAssistant.csproj.CoreCompileInputs.cache
+D:\大学\大四\专业综合设计\作业5-创建C#串口通讯程序\SerialAssistant\SerialAssistant\obj\Release\SerialAssistant.exe
+D:\大学\大四\专业综合设计\作业5-创建C#串口通讯程序\SerialAssistant\SerialAssistant\obj\Release\SerialAssistant.pdb
