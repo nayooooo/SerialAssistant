@@ -3,18 +3,12 @@
   "WorkspaceRootPath": "D:\\\u5927\u5B66\\\u5927\u56DB\\\u4E13\u4E1A\u7EFC\u5408\u8BBE\u8BA1\\\u4F5C\u4E1A5-\u521B\u5EFAC#\u4E32\u53E3\u901A\u8BAF\u7A0B\u5E8F\\SerialAssistant\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|SerialAssistant||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1102A2D7-8E93-41E2-B0F6-81F68CA1CEE9}|SerialAssistant\\SerialAssistant.csproj|d:\\\u5927\u5B66\\\u5927\u56DB\\\u4E13\u4E1A\u7EFC\u5408\u8BBE\u8BA1\\\u4F5C\u4E1A5-\u521B\u5EFAc#\u4E32\u53E3\u901A\u8BAF\u7A0B\u5E8F\\serialassistant\\serialassistant\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{1102A2D7-8E93-41E2-B0F6-81F68CA1CEE9}|SerialAssistant\\SerialAssistant.csproj|solutionrelative:serialassistant\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{1102A2D7-8E93-41E2-B0F6-81F68CA1CEE9}|SerialAssistant\\SerialAssistant.csproj|D:\\\u5927\u5B66\\\u5927\u56DB\\\u4E13\u4E1A\u7EFC\u5408\u8BBE\u8BA1\\\u4F5C\u4E1A5-\u521B\u5EFAC#\u4E32\u53E3\u901A\u8BAF\u7A0B\u5E8F\\SerialAssistant\\serialassistant\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1102A2D7-8E93-41E2-B0F6-81F68CA1CEE9}|SerialAssistant\\SerialAssistant.csproj|solutionrelative:serialassistant\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1102A2D7-8E93-41E2-B0F6-81F68CA1CEE9}|SerialAssistant\\SerialAssistant.csproj|d:\\\u5927\u5B66\\\u5927\u56DB\\\u4E13\u4E1A\u7EFC\u5408\u8BBE\u8BA1\\\u4F5C\u4E1A5-\u521B\u5EFAc#\u4E32\u53E3\u901A\u8BAF\u7A0B\u5E8F\\serialassistant\\serialassistant\\||{B270807C-D8C6-49EB-8EBE-8E8D566637A1}|5e9a8ac2-4f34-4521-858f-4c248ba31532"
+      "AbsoluteMoniker": "D:0:0:{1102A2D7-8E93-41E2-B0F6-81F68CA1CEE9}|SerialAssistant\\SerialAssistant.csproj|D:\\\u5927\u5B66\\\u5927\u56DB\\\u4E13\u4E1A\u7EFC\u5408\u8BBE\u8BA1\\\u4F5C\u4E1A5-\u521B\u5EFAC#\u4E32\u53E3\u901A\u8BAF\u7A0B\u5E8F\\SerialAssistant\\serialassistant\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{1102A2D7-8E93-41E2-B0F6-81F68CA1CEE9}|SerialAssistant\\SerialAssistant.csproj|solutionrelative:serialassistant\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -29,24 +23,12 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "SerialAssistant",
-              "DocumentMoniker": "D:\\\u5927\u5B66\\\u5927\u56DB\\\u4E13\u4E1A\u7EFC\u5408\u8BBE\u8BA1\\\u4F5C\u4E1A5-\u521B\u5EFAC#\u4E32\u53E3\u901A\u8BAF\u7A0B\u5E8F\\SerialAssistant\\SerialAssistant\\SerialAssistant.csproj",
-              "RelativeDocumentMoniker": "SerialAssistant\\SerialAssistant.csproj",
-              "ToolTip": "D:\\\u5927\u5B66\\\u5927\u56DB\\\u4E13\u4E1A\u7EFC\u5408\u8BBE\u8BA1\\\u4F5C\u4E1A5-\u521B\u5EFAC#\u4E32\u53E3\u901A\u8BAF\u7A0B\u5E8F\\SerialAssistant\\SerialAssistant\\SerialAssistant.csproj*",
-              "RelativeToolTip": "SerialAssistant\\SerialAssistant.csproj*",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-12-12T02:00:56.916Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
               "Title": "Form1.cs",
               "DocumentMoniker": "D:\\\u5927\u5B66\\\u5927\u56DB\\\u4E13\u4E1A\u7EFC\u5408\u8BBE\u8BA1\\\u4F5C\u4E1A5-\u521B\u5EFAC#\u4E32\u53E3\u901A\u8BAF\u7A0B\u5E8F\\SerialAssistant\\SerialAssistant\\Form1.cs",
               "RelativeDocumentMoniker": "SerialAssistant\\Form1.cs",
               "ToolTip": "D:\\\u5927\u5B66\\\u5927\u56DB\\\u4E13\u4E1A\u7EFC\u5408\u8BBE\u8BA1\\\u4F5C\u4E1A5-\u521B\u5EFAC#\u4E32\u53E3\u901A\u8BAF\u7A0B\u5E8F\\SerialAssistant\\SerialAssistant\\Form1.cs",
               "RelativeToolTip": "SerialAssistant\\Form1.cs",
-              "ViewState": "AgIAAEgBAAAAAAAAAAAswF8BAAARAAAAAAAAAA==",
+              "ViewState": "AgIAAN0BAAAAAAAAAAAqwOYBAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-11T03:13:40.231Z",
               "EditorCaption": ""

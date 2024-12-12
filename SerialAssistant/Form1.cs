@@ -279,6 +279,13 @@ namespace Serial
                         rx_config_stop_receive_btn.Enabled = false;
                         rx_config_stop_receive_btn.BackColor = SystemColors.Control;
                         _rx_Config_Context.is_receiving = false;
+
+                        if (_Transmit_Thread != null && _Transmit_Thread.IsAlive)
+                        {
+                            _Transmit_Thread.Abort();
+                        }
+                        tx_config_stop_transmit_btn.Enabled = false;
+                        tx_config_start_transmit_btn.Enabled = true;
                     }
                     else if (serial_config_port_cbb.SelectedIndex >= 0)
                     {  // to open
