@@ -62,11 +62,13 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel6 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.tx_status_transmit_counter = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tx_statu_transmit_counter = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.tx_status_receive_counter = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tx_statu_receive_counter = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.auto_send_cycle_statu = new System.Windows.Forms.ToolStripStatusLabel();
             this.groupBox4.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -395,7 +397,7 @@
             // 
             this.toolStripStatusLabel6.AutoSize = false;
             this.toolStripStatusLabel6.Name = "toolStripStatusLabel6";
-            this.toolStripStatusLabel6.Size = new System.Drawing.Size(100, 17);
+            this.toolStripStatusLabel6.Size = new System.Drawing.Size(60, 17);
             // 
             // toolStripStatusLabel2
             // 
@@ -403,13 +405,13 @@
             this.toolStripStatusLabel2.Size = new System.Drawing.Size(68, 17);
             this.toolStripStatusLabel2.Text = "发送计数：";
             // 
-            // tx_status_transmit_counter
+            // tx_statu_transmit_counter
             // 
-            this.tx_status_transmit_counter.AutoSize = false;
-            this.tx_status_transmit_counter.Name = "tx_status_transmit_counter";
-            this.tx_status_transmit_counter.Size = new System.Drawing.Size(80, 17);
-            this.tx_status_transmit_counter.Text = "0";
-            this.tx_status_transmit_counter.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.tx_statu_transmit_counter.AutoSize = false;
+            this.tx_statu_transmit_counter.Name = "tx_statu_transmit_counter";
+            this.tx_statu_transmit_counter.Size = new System.Drawing.Size(60, 17);
+            this.tx_statu_transmit_counter.Text = "0";
+            this.tx_statu_transmit_counter.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // toolStripStatusLabel4
             // 
@@ -417,13 +419,13 @@
             this.toolStripStatusLabel4.Size = new System.Drawing.Size(68, 17);
             this.toolStripStatusLabel4.Text = "接收计数：";
             // 
-            // tx_status_receive_counter
+            // tx_statu_receive_counter
             // 
-            this.tx_status_receive_counter.AutoSize = false;
-            this.tx_status_receive_counter.Name = "tx_status_receive_counter";
-            this.tx_status_receive_counter.Size = new System.Drawing.Size(80, 17);
-            this.tx_status_receive_counter.Text = "0";
-            this.tx_status_receive_counter.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.tx_statu_receive_counter.AutoSize = false;
+            this.tx_statu_receive_counter.Name = "tx_statu_receive_counter";
+            this.tx_statu_receive_counter.Size = new System.Drawing.Size(60, 17);
+            this.tx_statu_receive_counter.Text = "0";
+            this.tx_statu_receive_counter.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // statusStrip1
             // 
@@ -431,14 +433,28 @@
             this.toolStripStatusLabel1,
             this.toolStripStatusLabel6,
             this.toolStripStatusLabel2,
-            this.tx_status_transmit_counter,
+            this.tx_statu_transmit_counter,
             this.toolStripStatusLabel4,
-            this.tx_status_receive_counter});
+            this.tx_statu_receive_counter,
+            this.toolStripStatusLabel3,
+            this.auto_send_cycle_statu});
             this.statusStrip1.Location = new System.Drawing.Point(0, 460);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(680, 22);
             this.statusStrip1.TabIndex = 8;
             this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel3
+            // 
+            this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
+            this.toolStripStatusLabel3.Size = new System.Drawing.Size(157, 17);
+            this.toolStripStatusLabel3.Text = "当前自动发送周期（ms）：";
+            // 
+            // auto_send_cycle_statu
+            // 
+            this.auto_send_cycle_statu.Name = "auto_send_cycle_statu";
+            this.auto_send_cycle_statu.Size = new System.Drawing.Size(36, 17);
+            this.auto_send_cycle_statu.Text = "1000";
             // 
             // SerialAssistant
             // 
@@ -502,13 +518,15 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel6;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
-        private System.Windows.Forms.ToolStripStatusLabel tx_status_transmit_counter;
+        private System.Windows.Forms.ToolStripStatusLabel tx_statu_transmit_counter;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel4;
-        private System.Windows.Forms.ToolStripStatusLabel tx_status_receive_counter;
+        private System.Windows.Forms.ToolStripStatusLabel tx_statu_receive_counter;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox serial_config_encode_cbb;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel3;
+        private System.Windows.Forms.ToolStripStatusLabel auto_send_cycle_statu;
     }
 }
 

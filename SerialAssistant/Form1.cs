@@ -140,7 +140,14 @@ namespace Serial
             if (indata != null && indata.Length != 0)
             {
                 rx_buff_rtb.Text += indata;
-                tx_status_receive_counter.Text = (int.Parse(tx_status_receive_counter.Text) + indata.Length).ToString();
+                try
+                {
+                    tx_statu_receive_counter.Text = (int.Parse(tx_statu_receive_counter.Text) + indata.Length).ToString();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString() + "未知错误（Receive_Handler）");
+                }
             }
         }
 
@@ -148,7 +155,14 @@ namespace Serial
         {
             byte[] text = serialPort1.Encoding.GetBytes(str);
             serialPort1.Write(text, 0, text.Length);
-            tx_status_transmit_counter.Text = (int.Parse(tx_status_transmit_counter.Text) + text.Length).ToString();
+            try
+            {
+                tx_statu_transmit_counter.Text = (int.Parse(tx_statu_transmit_counter.Text) + text.Length).ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString() + "未知错误（Transmit_String）");
+            }
         }
 
         private void Transmit_Thread_Enter()
@@ -479,7 +493,15 @@ namespace Serial
             {
                 if (e.KeyCode == Keys.Enter)
                 {
-                    _tx_Config_Context.auto_Send_Cycle = int.Parse(tx_config_auto_send_cycle_tb.Text);
+                    try
+                    {
+                        _tx_Config_Context.auto_Send_Cycle = int.Parse(tx_config_auto_send_cycle_tb.Text);
+                        auto_send_cycle_statu.Text = _tx_Config_Context.auto_Send_Cycle.ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString() + "错误自动发送周期（" + tx_config_auto_send_cycle_tb.Text.ToString() + "）");
+                    }
                 }
             }
         }
