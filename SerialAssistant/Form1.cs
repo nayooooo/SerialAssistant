@@ -15,7 +15,7 @@ namespace Serial
     {
         private string[] _Serial_Baud_List = new string[]
         {
-            "9600", "19200", "38400", "57600", "748800", "115200"
+            "9600", "19200", "38400", "57600", "748800", "115200", "921600"
         };
         private string[] _Serial_Encode_List = new string[]
         {

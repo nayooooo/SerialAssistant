@@ -7,3 +7,12 @@ D:\大学\大四\专业综合设计\作业5-创建C#串口通讯程序\SerialAss
 D:\大学\大四\专业综合设计\作业5-创建C#串口通讯程序\SerialAssistant\SerialAssistant\obj\Release\SerialAssistant.csproj.CoreCompileInputs.cache
 D:\大学\大四\专业综合设计\作业5-创建C#串口通讯程序\SerialAssistant\SerialAssistant\obj\Release\SerialAssistant.exe
 D:\大学\大四\专业综合设计\作业5-创建C#串口通讯程序\SerialAssistant\SerialAssistant\obj\Release\SerialAssistant.pdb
+D:\embedded\EmbeddedSoftware\SerialAssistant\SerialAssistant\bin\Release\SerialAssistant.exe
+D:\embedded\EmbeddedSoftware\SerialAssistant\SerialAssistant\bin\Release\SerialAssistant.pdb
+D:\embedded\EmbeddedSoftware\SerialAssistant\SerialAssistant\obj\Release\SerialAssistant.csproj.AssemblyReference.cache
+D:\embedded\EmbeddedSoftware\SerialAssistant\SerialAssistant\obj\Release\Serial.SerialAssistant.resources
+D:\embedded\EmbeddedSoftware\SerialAssistant\SerialAssistant\obj\Release\SerialAssistant.Properties.Resources.resources
+D:\embedded\EmbeddedSoftware\SerialAssistant\SerialAssistant\obj\Release\SerialAssistant.csproj.GenerateResource.cache
+D:\embedded\EmbeddedSoftware\SerialAssistant\SerialAssistant\obj\Release\SerialAssistant.csproj.CoreCompileInputs.cache
+D:\embedded\EmbeddedSoftware\SerialAssistant\SerialAssistant\obj\Release\SerialAssistant.exe
+D:\embedded\EmbeddedSoftware\SerialAssistant\SerialAssistant\obj\Release\SerialAssistant.pdb
